@@ -9,7 +9,7 @@ SERVER_PORTS = [5000, 5001, 5002]
 PLOTTING_SERVER_PORT = 7000
 
 def read_config(config_file)
-  fault_tolerance_level = 0
+  fault_tolerance_level = 0 
   begin
     File.open(config_file, 'r') do |file|
       file.each_line do |line|
