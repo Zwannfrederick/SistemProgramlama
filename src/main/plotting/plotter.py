@@ -19,39 +19,6 @@ server_capacity_data = {
 data_lock = threading.Lock()
 start_time = time.time()
 
-def handle_client_connection(connection):
-    while True:
-        try:
-            length_data = connection.recv(4)
-            if not length_data:
-                break
-            message_length = struct.unpack("!I", length_data)[0]
-
-            received_data = connection.recv(message_length)
-            capacity = Capacity()
-
-            try:
-                capacity.ParseFromString(received_data)
-            except Exception as e:
-                print(f"Failed to parse the capacity data: {e}")
-                print(traceback.format_exc())
-                continue
-
-            print(f"Received capacity - Server: Server{capacity.server_id}, Status: {capacity.serverX_status}, Timestamp: {capacity.timestamp}")
-
-            with data_lock:
-                current_time = time.time() - start_time
-                server_name = f"server{capacity.server_id}"
-                if server_name in server_capacity_data:
-                    server_capacity_data[server_name].append((capacity.serverX_status, current_time))
-                else:
-                    print(f"Unknown server ID: {capacity.server_id}")
-
-        except Exception as e:
-            print(f"Error while processing data from the server: {e}")
-            print(traceback.format_exc())
-            break
-
 def plot_capacity_data():
     plt.ion()
     fig, ax = plt.subplots(figsize=(12, 6))
@@ -101,7 +68,41 @@ def plot_capacity_data():
 
         ax.relim()
         ax.autoscale_view(scaley=True, scalex=False)
-        plt.pause(5)  # Update every 5 seconds
+        plt.pause(5)  
+
+def handle_client_connection(connection):
+    while True:
+        try:
+            length_data = connection.recv(4)
+            if not length_data:
+                break
+            message_length = struct.unpack("!I", length_data)[0]
+
+            received_data = connection.recv(message_length)
+            capacity = Capacity()
+
+            try:
+                capacity.ParseFromString(received_data)
+            except Exception as e:
+                print(f"Failed to parse the capacity data: {e}")
+                print(traceback.format_exc())
+                continue
+
+            print(f"Received capacity - Server: Server{capacity.server_id}, Status: {capacity.serverX_status}, Timestamp: {capacity.timestamp}")
+
+            with data_lock:
+                current_time = time.time() - start_time
+                server_name = f"server{capacity.server_id}"
+                if server_name in server_capacity_data:
+                    server_capacity_data[server_name].append((capacity.serverX_status, current_time))
+                else:
+                    print(f"Unknown server ID: {capacity.server_id}")
+
+        except Exception as e:
+            print(f"Error while processing data from the server: {e}")
+            print(traceback.format_exc())
+            break
+
 
 def start_plotting_server():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:

@@ -23,7 +23,6 @@ _sym_db = _symbol_database.Default()
 
 
 
-
 DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0e\x63\x61pacity.proto\x12\x04info\"H\n\x08\x43\x61pacity\x12\x16\n\x0eserverX_status\x18\x01 \x01(\x05\x12\x11\n\ttimestamp\x18\x02 \x01(\x03\x12\x11\n\tserver_id\x18\x03 \x01(\x05\x42!\n\x10\x63omm.struct.infoB\rCapacityProtob\x06proto3')
 
 _globals = globals()
