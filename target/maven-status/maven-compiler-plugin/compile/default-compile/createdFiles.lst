@@ -7,7 +7,6 @@ comm\struct\info\SubscriberProto$Subscriber.class
 comm\struct\info\CapacityProto$CapacityOrBuilder.class
 dist_servers\Server2.class
 comm\struct\info\CapacityProto.class
-Clients\Client.class
 comm\struct\info\ConfigurationProto$MethodType.class
 comm\struct\info\MessageProto.class
 comm\struct\info\SubscriberProto$Subscriber$1.class

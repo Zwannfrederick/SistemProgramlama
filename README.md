@@ -127,4 +127,4 @@ Bu dağıtık sistem, etkili sunucu-istemci iletişimini, hata toleransını ve 
 Github reposunda dosya düzeni sıkıntısı çıktığı için force push yapıldığından commit geçmişleri silinmiştir(Git hatasından dolayı git dosyaları silindi. Fork commitleri de dahil)
 
 ## Youtube Videosu Linki
-blabla link
+https://youtu.be/Wo12YIG_vFM?feature=shared

@@ -36,7 +36,7 @@ public class ServerBase {
     private Map<Long, Subscribers> clientsInfo;
 
     static {
-        ports = loadPortsFromFile("C:\\Sistem Programlama\\src\\main\\java\\dist_servers\\servers.txt");
+        ports = loadPortsFromFile("C:\\SistemProgramlama\\src\\main\\java\\dist_servers\\servers.txt");
     }
 
     public class Subscribers {
