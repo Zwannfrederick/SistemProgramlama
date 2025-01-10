@@ -120,8 +120,11 @@ Bu dağıtık sistem, etkili sunucu-istemci iletişimini, hata toleransını ve 
 
 ## Görev Dağılımı
 - Muhammed Emin Çelik: Sunucu dizaynı
-- Arda Lafcı: Admin ve Admin Handler  
+- Arda Lafcı: Admin ,Admin Handler ve Client Tasarımı  
 - Ali Kılıç: Plotter, Proto ve Maven kurulumu 
+
+## Github Reposu Açıklama 
+Github reposunda dosya düzeni sıkıntısı çıktığı için force push yapıldığından commit geçmişleri silinmiştir(Git hatasından dolayı git dosyaları silindi. Fork commitleri de dahil)
 
 ## Youtube Videosu Linki
 blabla link
